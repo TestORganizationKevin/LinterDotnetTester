@@ -6,23 +6,48 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
-  run-lint:
+  comment-with-api:
     runs-on: ubuntu-latest
     steps:
       - name: dump github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      
-      
+
+      - name: create comment appi
+        run: |
+          gh api -X POST \
+            http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/pulls/${PULL_NUMBER}/comments \
+            -f body=`
+            yeheee comment
+            `
+          
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORGANIZATION: ${{ github.event.organization.login }}
+          REPOSITORY: ${{ github.event.repository.name }}
+          PULL_NUMBER: ${{ github.event.number }}
+
+
+
+#  run-lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: dump github context
+#        env:
+#          GITHUB_CONTEXT: ${{ toJson(github) }}
+#        run: echo "$GITHUB_CONTEXT"
+#      
+#      
 #      - name: Create comment
 #        uses: peter-evans/create-or-update-comment@v3
 #        with:
+#          
 #          issue-number: 1
 #          body: |
 #            This is a multi-line test comment
 #            - With GitHub **Markdown** :sparkles:
 #            - Created by [create-or-update-comment][1]
-#
+#            
 #            [1]: https://github.com/peter-evans/create-or-update-comment
 #          reactions: '+1'
