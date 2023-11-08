@@ -1,8 +1,6 @@
-﻿name: Printing
+﻿name: "Printing"
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
