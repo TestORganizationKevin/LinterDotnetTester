@@ -4,9 +4,7 @@
     {
         Console.WriteLine("Hello, World!");
 
-        var a;
-
-        //SOme change
+        
 
         var notGOodNamiing = "not good naming";
     }
