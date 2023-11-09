@@ -1,3 +1,7 @@
+# ******** NOTE ********
+# We have attempted to detect the languages in your repository. Please check
+# the `language` matrix defined below to confirm you have the correct set of
+# supported CodeQL languages.
 name: "CodeQL"
 
 on:
@@ -9,7 +13,6 @@ on:
 jobs:
   analyze:
     name: Analyze
-    
     runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
     timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
     permissions:
@@ -21,7 +24,8 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'csharp' ]
-       
+        # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -30,7 +34,8 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-       
+        external-repository-token : ${{ secrets.ACCESS_TOKEN }}
+        
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
 

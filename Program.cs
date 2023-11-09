@@ -6,6 +6,8 @@
 
         
 
-        var notGOodNamiing = "not good naming";
+        var notGOodNamidasdasdawcsing = "not good naming";
     }
+
+    void adnadhgadgshjkgdhjksgdhhgsdkha(){}
 }
