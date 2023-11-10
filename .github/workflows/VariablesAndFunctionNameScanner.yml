@@ -1,4 +1,4 @@
-﻿name: "Variables AndFunction NameScanner"
+﻿name: "namingChecker"
 
 on:
   pull_request:
