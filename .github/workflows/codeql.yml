@@ -1,48 +1,48 @@
-## ******** NOTE ********
-## We have attempted to detect the languages in your repository. Please check
-## the `language` matrix defined below to confirm you have the correct set of
-## supported CodeQL languages.
-#name: "CodeQL"
-#
-#on:
+# ******** NOTE ********
+# We have attempted to detect the languages in your repository. Please check
+# the `language` matrix defined below to confirm you have the correct set of
+# supported CodeQL languages.
+name: "CodeQL"
+
+on:
 #  push:
 #    branches: [ "master" ]
 #  pull_request:
 #    branches: [ "master" ]
-#  schedule:
-#    - cron: '22 20 * * 5'
-#
-#jobs:
-#  analyze:
-#    name: Analyze
-#    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
-#    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
-#    permissions:
-#      actions: read
-#      contents: read
-#      security-events: write
-#
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        language: [ 'csharp' ]
-#        # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
-#
-#    steps:
-#    - name: Checkout repository
-#      uses: actions/checkout@v3
-#
-#    # Initializes the CodeQL tools for scanning.
-#    - name: Initialize CodeQL
-#      uses: github/codeql-action/init@v2
-#      with:
-#        languages: ${{ matrix.language }}
-#        external-repository-token : ${{ secrets.ACCESS_TOKEN }}
-#        
-#    - name: Autobuild
-#      uses: github/codeql-action/autobuild@v2
-#
-#    - name: Perform CodeQL Analysis
-#      uses: github/codeql-action/analyze@v2
-#      with:
-#        category: "/language:${{matrix.language}}"
+  schedule:
+    - cron: '22 20 * * 5'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'csharp' ]
+        # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        external-repository-token : ${{ secrets.ACCESS_TOKEN }}
+        
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
