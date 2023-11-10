@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: ["master"]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 #    types: [opened, synchronize, reopened]
@@ -20,5 +20,5 @@ jobs:
       - name: Scan variables and functions
         run: |
           git diff --unified=0 HEAD^ | grep -oP '(?<= )a(?=\s*;)' && exit 1 || echo "No single-letter variable 'a' found"
-#          git diff --unified=0 HEAD^ | grep -oP '((?<=int )|(?<=string )|(?<=bool ))a(?=\s*;)' && exit 1 || echo "No single-letter variables found"
-#          git diff --unified=0 HEAD^ | grep -oP '[a-z]\w*(?=\()' && exit 1 || echo "No functions starting with lowercase found"
+          git diff --unified=0 HEAD^ | grep -oP '[a-z]\w*(?=\()' && exit 1 || echo "No functions starting with lowercase found"
+#          git diff --unified=0 HEAD^ | grep -oP '((?<=int )|(?<=string )|(?<=bool ))a(?=\s*;)' && exit 1 || echo "No single-letter variables found" #specic datatype
