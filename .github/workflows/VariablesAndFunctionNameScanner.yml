@@ -1,0 +1,20 @@
+﻿name: Scan Variables and Functions
+
+on:
+  pull_request:
+    branches: [ "master" ]
+#    types: [opened, synchronize, reopened]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Scan variables and functions
+        run: |
+          git diff --unified=0 HEAD^ | grep -oP '(?<=var )a(?=\s*;)' && exit 1 || echo "No single-letter variables found"
+          git diff --unified=0 HEAD^ | grep -oP '[a-z]\w*(?=\()' && exit 1 || echo "No functions starting with lowercase found"
