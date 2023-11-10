@@ -4,7 +4,7 @@
     {
         GoodFunctionName();
         var a = "Hello";
-        string a;
+        // string a;
         badFunctionName();
     }
 
