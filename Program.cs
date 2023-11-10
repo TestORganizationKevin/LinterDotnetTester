@@ -2,12 +2,12 @@
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
-
-        var notGOodNamidasdasdawcsing = "not good naming";
+        GoodFunctionName();
+        
+        badFunctionName();
     }
 
-    public static void Nobody()
+    public static void GoodFunctionName()
     {
         byte vbyte = new(); //byte  
         sbyte vsbyte = new(); //sbyte  
@@ -27,5 +27,9 @@
         string string2 = new("sda"); //string   
         DateTime vDateTime = new(); //DateTime  
     }
-    void adnadhgadgshjkgdhjksgdhhgsdkha(){}
+
+    static void badFunctionName()
+    {
+        
+    }
 }
