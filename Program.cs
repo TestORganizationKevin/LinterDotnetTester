@@ -3,7 +3,7 @@
     static void Main(string[] args)
     {
         GoodFunctionName();
-        var a = "Hello";
+        int a = 2;
         // string a;
         badFunctionName();
     }
