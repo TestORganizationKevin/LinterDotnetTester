@@ -3,8 +3,6 @@
     static void Main(string[] args)
     {
         GoodFunctionName();
-        int a = 2;
-        // string a;
         badFunctionName();
     }
 
