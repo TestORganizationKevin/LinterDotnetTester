@@ -19,8 +19,5 @@ jobs:
 
       - name: Scan variables and functions
         run: |
-          git diff --unified=0 HEAD^ | grep -oP '(?<=var )string(?=\s*;)' && exit 1
-# git diff --unified=0 HEAD^ | grep -oP '[a-z]\w*(?=\()' && exit 1        
-          
-#          git diff --unified=0 HEAD^ | grep -oP '(?<=var )a(?=\s*;)' && exit 1 || echo "No single-letter variables found"
+          git diff --unified=0 HEAD^ | grep -oP '(?<=var )a(?=\s*;)' && exit 1 || echo "No single-letter variables found"
 #          git diff --unified=0 HEAD^ | grep -oP '[a-z]\w*(?=\()' && exit 1 || echo "No functions starting with lowercase found"
