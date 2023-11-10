@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  PR Context:
+  PRContext:
     runs-on: ubuntu-latest
     steps:
       - name: dump github context
