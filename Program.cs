@@ -5,10 +5,10 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        string input =
-            @"public static void GoodFunctionName() \n {\n        byte vbyte = new(); //byte  \n        sbyte vsbyte = new(); //sbyte  \n        short vshort = new(); //short  \n        ushort vushort = new(); //ushort  \n        int vint = new(); //int  \n        uint vuint = new(); //uint  \n        long vlong = new(); //long  \n        ulong vulong = new(); //ulong  \n        float vfloat = new(); //float  \n        double vdouble = new(); //double  \n        decimal vdecimal = new(); //decimal  \n        char vchar = new(); //char  \n        bool vbool = new(); //bool  \n        // object a = new(); //object  \n        string string1 = new(""sda""); //string   \n        string string2 = new(""sda""); //string   \n        DateTime vDateTime = new(); //DateTime  \n    }\n\n    static void badFunctionName()\n    {\n    }";
+        string input = File.ReadAllText(@"./Program.cs");
+
+
         string pattern = @"\b((?!new\s*\()[a-z]\w*(?=\())";
-        Console.WriteLine("\n");
 
         foreach (Match match in Regex.Matches(input, pattern))
         {
