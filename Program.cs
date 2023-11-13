@@ -8,7 +8,7 @@ class Program
         string input = File.ReadAllText(@"./Program.cs");
 
 
-        string pattern = @"\b((?!new\s*\()[a-z]\w*(?=\())";
+        // string pattern = @"\b((?!new\s*\()[a-z]\w*(?=\())";
 
         foreach (Match match in Regex.Matches(input, pattern))
         {
