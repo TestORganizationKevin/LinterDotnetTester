@@ -38,7 +38,7 @@ class Program
         DateTime vDateTime = new(); //DateTime  
     }
 
-    static void badFunctionName()
+    static void BadFunctionName()
     {
     }
 }
