@@ -13,7 +13,6 @@ class Program
         foreach (Match match in Regex.Matches(input, pattern))
         {
             Console.WriteLine($"Matched text: {match.Value}");
-            // Console.WriteLine(doesmatch.Success);
         }
     }
 
@@ -36,9 +35,5 @@ class Program
         string string1 = new("sda"); //string   
         string string2 = new("sda"); //string   
         DateTime vDateTime = new(); //DateTime  
-    }
-
-    static void BadFunctionName()
-    {
     }
 }
