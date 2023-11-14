@@ -4,17 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Clear();
-        string input = File.ReadAllText(@"./Program.cs");
-
-
-        // string pattern = @"\b((?!new\s*\()[a-z]\w*(?=\())";
-
-        foreach (Match match in Regex.Matches(input, pattern))
-        {
-            Console.WriteLine($"Matched text: {match.Value}");
-            // Console.WriteLine(doesmatch.Success);
-        }
+        System.Console.WriteLine("Yay");
     }
 
     public static void GoodFunctionName()
@@ -32,13 +22,10 @@ class Program
         decimal vdecimal = new(); //decimal  
         char vchar = new(); //char  
         bool vbool = new(); //bool  
-        // object a = new(); //object  
         string string1 = new("sda"); //string   
         string string2 = new("sda"); //string   
         DateTime vDateTime = new(); //DateTime  
     }
 
-    static void badFunctionName()
-    {
-    }
+
 }
