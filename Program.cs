@@ -7,8 +7,8 @@ class Program
         Console.Clear();
         string input = File.ReadAllText(@"./Program.cs");
 
-
         string pattern = @"\b((?!new\s*\()[a-z]\w*(?=\())";
+
 
         foreach (Match match in Regex.Matches(input, pattern))
         {
@@ -32,6 +32,7 @@ class Program
         decimal vdecimal = new(); //decimal  
         char vchar = new(); //char  
         bool vbool = new(); //bool  
+
         string string1 = new("sda"); //string   
         string string2 = new("sda"); //string   
         DateTime vDateTime = new(); //DateTime  
