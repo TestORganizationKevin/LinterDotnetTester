@@ -32,7 +32,6 @@ class Program
         decimal vdecimal = new(); //decimal  
         char vchar = new(); //char  
         bool vbool = new(); //bool  
-        // object a = new(); //object  
         string string1 = new("sda"); //string   
         string string2 = new("sda"); //string   
         DateTime vDateTime = new(); //DateTime  
